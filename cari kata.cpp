@@ -74,3 +74,24 @@ while (n<=15){
 
  return boolean;
 }
+
+bool searchHorizontal(char *a){
+int n = 0;
+int boolean = 0;
+static char horizontal[16];
+char *ngecek = strstr(horizontal,a);
+char *ngecekreverse = strstr(reverse(horizontal),a);
+while (n<=15){
+    for (int i = 0;i<16;i++){
+        horizontal [i] = words[n][i];
+    }
+
+    if (ngecek){
+        boolean++;
+    } else if (ngecekreverse){
+    boolean++;
+    }n++;
+
+}
+return boolean;
+}
