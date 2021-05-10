@@ -1,3 +1,12 @@
+/*
+Kelompok 5
+1. Ahmad Muzakki - 2017051037
+2. 
+3. 
+Link Github : 
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -32,66 +41,52 @@ int main()
     char word[16];
     int n;
     cin>>n;
-    cin.ignore(1,'\n');
+    cin.ignore();
     for (int i=0;i<n;i++){
         cin.getline(word,16,'\n');
-        if (searchVertical(word) || searchHorizontal(word))
+        if (searchVertical(word) || searchHorizontal(word) || searchReverseVertical(word) || searchReverseHorizontal(word)){
             cout << "Ada\n";
-        else
-            cout << "Tidak Ada\n";
+        }
+        else{
+           cout << "Tidak Ada\n";
+        }
     }
     return 0;
 }
 
-
-char *getWordVertical(int a){
-static char simpan [16];
-for (int i = 0;i<16;i++){
-    simpan [i] = words [i][a];
-}
-return simpan;
-}
-
-char *reverse(char *a){
-reverse(a,a+15);
-return a;
-
-}
-
-bool searchVertical(char *a){
-int n=0;
-int boolean = 0;
-char *ngecek = strstr(getWordVertical(n),a);
-char *ngecekreverse = strstr(reverse(getWordVertical(n)),a);
-while (n<=15){
-    if (ngecek){
-        boolean++;
-    } else if (ngecekreverse){
-    boolean++;
-    }n++;
-
+bool searchHorizontal(char input[]){
+	char *temp;
+	
+	for (int i = 0; i < 15; i++)
+    {
+        temp = strstr(words[i], input);
+        
+	    if(temp != NULL){
+	        return true;
+	    }
     }
-
- return boolean;
+    
+    return false;
 }
 
-bool searchHorizontal(char *a){
-int n = 0;
-int boolean = 0;
-static char horizontal[16];
-char *ngecek = strstr(horizontal,a);
-char *ngecekreverse = strstr(reverse(horizontal),a);
-while (n<=15){
-    for (int i = 0;i<16;i++){
-        horizontal [i] = words[n][i];
+bool searchReverseHorizontal(char input[]){ 
+	char *temp;
+	char kata[15]; 
+	
+	for (int i = 0; i < 15; i++)
+    {
+    	for(int j = 0; j < 15; j++){
+	    	kata[j] = words[i][j]; 
+		}
+		
+	    reverse(kata, kata + strlen(kata)); 
+	    temp = strstr(kata, input); 
+        
+	    if(temp != NULL){ 
+	        return true; 
+	    }
     }
-
-    if (ngecek){
-        boolean++;
-    } else if (ngecekreverse){
-    boolean++;
-    }n++;
-
+    
+    return false;
 }
-return boolean;
-}
+
