@@ -1,7 +1,7 @@
 /*
 Kelompok 5
 1. Ahmad Muzakki - 2017051037
-2. 
+2. Indah Nirmala Zahra Nabil - 2057051004
 3. 
 Link Github : https://github.com/zakki31/TUGAS-PETRUK.git
 */
@@ -90,3 +90,23 @@ bool searchReverseHorizontal(char input[]){
     return false;
 }
 
+bool searchVertical(char input[]){
+	char *temp;
+	char kata[15];
+	
+	for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 15; j++)
+        {
+            kata[j] = words[j][i];
+        }
+        
+        temp = strstr(kata, input);
+
+        if(temp != NULL){
+	        return true;
+	    }
+    }
+    
+    return false;
+}
