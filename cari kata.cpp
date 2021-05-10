@@ -3,7 +3,7 @@ Kelompok 5
 1. Ahmad Muzakki - 2017051037
 2. 
 3. 
-Link Github : 
+Link Github : https://github.com/zakki31/TUGAS-PETRUK.git
 */
 
 
