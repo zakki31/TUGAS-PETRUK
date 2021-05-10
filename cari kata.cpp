@@ -2,7 +2,7 @@
 Kelompok 5
 1. Ahmad Muzakki - 2017051037
 2. Indah Nirmala Zahra Nabil - 2057051004
-3. 
+3. Muhammad Fahmi Bastari - 2057051005
 Link Github : https://github.com/zakki31/TUGAS-PETRUK.git
 */
 
@@ -108,5 +108,26 @@ bool searchVertical(char input[]){
 	    }
     }
     
+    return false;
+}
+
+bool searchReverseVertical(char input[]){ 
+	char *temp;
+	char kata[15];
+	
+	for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 15; j++)
+        {
+            kata[j] = words[j][i];
+        }
+        
+        reverse(kata, kata + strlen(kata)); 
+        temp = strstr(kata, input);
+
+        if(temp != NULL){
+	        return true;
+	    }
+    }
     return false;
 }
